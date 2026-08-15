@@ -158,6 +158,7 @@ export default function App() {
             and the problem.
           </p>
           <div className="hero-links rise d3">
+            <a className="cta" href="SundariAvanthikaa_Resume_Aug2026.pdf" download>Download Resume</a>
             <a href="https://www.linkedin.com/in/avanthikaa-srini/" target="_blank" rel="noreferrer">LinkedIn</a>
             <a href="https://github.com/ventikaa" target="_blank" rel="noreferrer">GitHub</a>
             <a href="https://medium.com/@avanthikaasrinivasan" target="_blank" rel="noreferrer">Medium</a>

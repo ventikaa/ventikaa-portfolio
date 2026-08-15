@@ -91,6 +91,9 @@ main{padding-bottom:clamp(60px,10vw,120px); min-width:0}
 .hero-links a::after{content:""; position:absolute; left:0; right:0; bottom:0; height:1.5px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .3s ease}
 .hero-links a:hover{color:var(--accent)}
 .hero-links a:hover::after{transform:scaleX(1)}
+.hero-links a.cta{background:var(--accent); color:var(--paper); padding:8px 16px; border-radius:6px; transition:opacity .2s ease, transform .2s ease}
+.hero-links a.cta::after{display:none}
+.hero-links a.cta:hover{color:var(--paper); opacity:.9; transform:translateY(-1px)}
 
 /* section header */
 section{padding:clamp(46px,7vw,84px) 0; border-top:1px solid var(--line); scroll-margin-top:40px}
