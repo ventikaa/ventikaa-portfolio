@@ -137,6 +137,9 @@ dl{margin:0}
 .refs li::before{counter-increment:r; content:counter(r,decimal-leading-zero); font-variant-numeric:tabular-nums; font-size:12.5px; color:var(--accent); font-weight:700; padding-top:5px}
 .refs .t{font-family:var(--serif); font-size:1.14rem; line-height:1.35; font-style:italic}
 .refs .venue{display:block; margin-top:.45rem; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); font-weight:600; font-style:normal}
+.refs .t a{color:inherit; text-decoration:none; transition:color .2s ease}
+.refs .t a:hover{color:var(--accent)}
+.refs .t .ext{font-size:.62em; color:var(--accent); vertical-align:.15em; font-style:normal}
 
 /* footer */
 .foot{border-top:1px solid var(--line); padding:26px 0 8px; margin-top:20px; display:flex; flex-wrap:wrap; gap:8px 20px; justify-content:space-between; font-size:12.5px; color:var(--ink-faint); font-weight:600}

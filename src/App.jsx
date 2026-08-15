@@ -37,10 +37,10 @@ const SKILLS = [
 ]
 
 const PAPERS = [
-  ['ML Workflow for Correlating Anxiety and Stress: A SHAP-Based Multimodal Analysis', 'ICCETSP · 2025'],
-  ['Neurodynamic Characterization and Prediction of Schizophrenia Using Echo State Networks with Serotonin Modulation', 'Preprint · 2024'],
-  ['Enhancing Neurofuzzy Plasticity: A Fusion of LSTM and Artificial Neurogenesis', 'IEEE Xplore · ICETCI · 2024'],
-  ['Reinforcement Learning: Advancements, Limitations, and Real-World Applications', 'IJSREM · 2023'],
+  ['ML Workflow for Correlating Anxiety and Stress: A SHAP-Based Multimodal Analysis', 'ICCETSP · 2025', 'https://www.researchgate.net/publication/390049608_Machine_Learning_Workflow_for_Correlating_Anxiety_and_Stress_A_SHAP-Based_Multimodal_Analysis'],
+  ['Neurodynamic Characterization and Prediction of Schizophrenia Using Echo State Networks with Serotonin Modulation', 'Preprint · 2024', 'https://www.researchsquare.com/article/rs-5457834/v1'],
+  ['Enhancing Neurofuzzy Plasticity: A Fusion of LSTM and Artificial Neurogenesis', 'IEEE Xplore · ICETCI · 2024', 'https://ieeexplore.ieee.org/document/10704177'],
+  ['Reinforcement Learning: Advancements, Limitations, and Real-World Applications', 'IJSREM · 2023', 'https://ijsrem.com/download/reinforcement-learning-advancements-limitations-and-real-world-applications'],
 ]
 
 const COMMUNITY = [
@@ -223,10 +223,14 @@ export default function App() {
             <p className="ssub">Four publications across health, neuroscience, and reinforcement learning.</p>
           </header>
           <ol className="refs">
-            {PAPERS.map(([t, v]) => (
+            {PAPERS.map(([t, v, url]) => (
               <li key={t}>
                 <div>
-                  <span className="t">{t}</span>
+                  <span className="t">
+                    {url
+                      ? <a href={url} target="_blank" rel="noreferrer">{t} <span className="ext">↗</span></a>
+                      : t}
+                  </span>
                   <span className="venue">{v}</span>
                 </div>
               </li>
