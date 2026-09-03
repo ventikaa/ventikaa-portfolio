@@ -53,6 +53,13 @@ const COMMUNITY = [
     ],
   },
   {
+    inst: 'Community',
+    roles: [
+      { yr: '2025', role: 'Founding Member, Brand & Content', org: 'Cha Wellness', desc: 'Co-founded a matcha wellness brand from scratch. Owned the website, visual identity, and product messaging; coordinated vendors and stakeholders to plan and execute two public launch events.' },
+      { yr: '2024 – 25', role: 'Writer & On-Camera Creator', org: 'Super Chennai', desc: 'Wrote and starred in video content for a 300,000+ follower Instagram page showcasing Chennai as a vibrant metropolitan city, reaching a large and engaged audience with original reels.' },
+    ],
+  },
+  {
     inst: 'SRM Institute of Science and Technology',
     roles: [
       { yr: '2024 – 25', role: 'President', org: 'White Hat Hackers Club', desc: 'Led a 700+ member student organization, building talks and bootcamps specifically for women entering cybersecurity, plus after-school coding programs with FOSS India for first-year students.' },
@@ -248,7 +255,8 @@ export default function App() {
           <p className="lead">
             From a cybersecurity club in Chennai to student government at UW, the thread is{' '}
             <b>access</b>: a <b>700+ member</b> club, a <b>1,000-registrant</b> symposium across{' '}
-            <b>39 colleges</b>, and the women-in-tech programs built in between.
+            <b>39 colleges</b>, a matcha brand built from scratch, <b>300K+ followers</b> reached
+            on-camera, and the women-in-tech programs built in between.
           </p>
           {COMMUNITY.map((group) => (
             <div key={group.inst}>
