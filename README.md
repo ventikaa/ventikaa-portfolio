@@ -1,1 +1,1 @@
-https://ventikaa.github.io/ventikaa-portfolio/
+https://ventikaa-portfolio.vercel.app/

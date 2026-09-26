@@ -35,11 +35,6 @@ export default async function handler(req, res) {
         error: 'Spotify token refresh failed',
         reason: token.error,
         detail: token.error_description,
-        envSet: {
-          SPOTIFY_CLIENT_ID: Boolean(process.env.SPOTIFY_CLIENT_ID),
-          SPOTIFY_CLIENT_SECRET: Boolean(process.env.SPOTIFY_CLIENT_SECRET),
-          SPOTIFY_REFRESH_TOKEN: Boolean(process.env.SPOTIFY_REFRESH_TOKEN),
-        },
       })
     }
 
