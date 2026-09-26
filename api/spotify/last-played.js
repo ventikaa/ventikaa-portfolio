@@ -27,7 +27,21 @@ export default async function handler(req, res) {
   res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=30')
 
   try {
-    const { access_token } = await getAccessToken()
+    const token = await getAccessToken()
+    const { access_token } = token
+
+    if (!access_token) {
+      return res.status(500).json({
+        error: 'Spotify token refresh failed',
+        reason: token.error,
+        detail: token.error_description,
+        envSet: {
+          SPOTIFY_CLIENT_ID: Boolean(process.env.SPOTIFY_CLIENT_ID),
+          SPOTIFY_CLIENT_SECRET: Boolean(process.env.SPOTIFY_CLIENT_SECRET),
+          SPOTIFY_REFRESH_TOKEN: Boolean(process.env.SPOTIFY_REFRESH_TOKEN),
+        },
+      })
+    }
 
     // try currently playing first
     const nowRes = await fetch(NOW_PLAYING_ENDPOINT, {
@@ -54,7 +68,12 @@ export default async function handler(req, res) {
     })
 
     if (!recentRes.ok) {
-      return res.status(500).json({ error: 'Failed to fetch recently played' })
+      const body = await recentRes.json().catch(() => ({}))
+      return res.status(500).json({
+        error: 'Failed to fetch recently played',
+        spotifyStatus: recentRes.status,
+        spotifyMessage: body.error?.message,
+      })
     }
 
     const data = await recentRes.json()
