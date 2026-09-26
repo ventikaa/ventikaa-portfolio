@@ -3,7 +3,7 @@
  *
  * Steps:
  * 1. Go to https://developer.spotify.com/dashboard
- * 2. Create an app (name: "Portfolio", redirect URI: http://localhost:3456/callback)
+ * 2. Create an app (name: "Portfolio", redirect URI: http://127.0.0.1:3456/callback)
  * 3. Copy Client ID and Client Secret
  * 4. Run: node scripts/get-spotify-token.mjs <CLIENT_ID> <CLIENT_SECRET>
  * 5. Open the URL it prints in your browser
@@ -15,7 +15,7 @@ import http from 'node:http'
 
 const CLIENT_ID = process.argv[2]
 const CLIENT_SECRET = process.argv[3]
-const REDIRECT_URI = 'http://localhost:3456/callback'
+const REDIRECT_URI = 'http://127.0.0.1:3456/callback'
 const SCOPES = 'user-read-recently-played user-read-currently-playing'
 
 if (!CLIENT_ID || !CLIENT_SECRET) {
@@ -35,7 +35,7 @@ console.log(authUrl.toString())
 console.log('\n2. Log in and authorize. You\'ll be redirected back here.\n')
 
 const server = http.createServer(async (req, res) => {
-  const url = new URL(req.url, `http://localhost:3456`)
+  const url = new URL(req.url, `http://127.0.0.1:3456`)
   if (!url.pathname.startsWith('/callback')) return
 
   const code = url.searchParams.get('code')
@@ -83,5 +83,5 @@ const server = http.createServer(async (req, res) => {
 })
 
 server.listen(3456, () => {
-  console.log('Waiting for Spotify callback on http://localhost:3456 ...\n')
+  console.log('Waiting for Spotify callback on http://127.0.0.1:3456 ...\n')
 })
